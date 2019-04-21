@@ -1,0 +1,13 @@
+＜TODO＞
+画像はまだ
+注文リストに入れる<br>
+
+Name: <%= @menu.name %><br>
+Price: <%= @menu.price %><br>
+Description: <%= @menu.description %><br>
+
+<%= form_tag('/carts/add', method: :post) do %>
+ メニューid・個数をセッションに保存<br>
+ <%= label_tag :個数 %><br>
+ <%= submit_tag "追加" %><br>
+<% end %>
