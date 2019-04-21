@@ -7,5 +7,7 @@ class MenusController < ApplicationController
 
   def detail
     @menu = Menu.find(params[:menuid])
+    @menuId = params[:menuid]
+
   end
 end
