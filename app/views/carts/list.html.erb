@@ -1,0 +1,11 @@
+<% @cart_items.each do |item| %>
+  Name: <%= item.menu.name %><br>
+  Price:<%= item.menu.price %><br>
+  Quantity:<%= item.quantity %><br>
+<% end %>
+
+<%= form_tag('/carts/order', method: :post) do %>
+  <%= label_tag :座席番号を選択する %><br>
+  <%= select :seat, :number, [1,2,3,4,5] %><br>
+  <%= submit_tag "注文する" %><br>
+<% end %>
