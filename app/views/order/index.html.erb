@@ -1,0 +1,23 @@
+<% @orderhistories.each do |order| %>
+  Seat_Number：<%= order.seat_number %>
+  Name: <%= order.menu.name %>
+  Quantity: <%= order.quantity %>
+  <% if order.is_telled == false %>
+    <%= form_tag('/orders/telled', method: :post) do %>
+      <%= hidden_field_tag :orderhistid, order.id %><br>
+      <%= submit_tag "厨房に伝達する" %><br>
+    <% end %>
+  <% else %>
+    厨房に伝達済
+  <% end %>
+
+  <% if order.is_cancelled == false %>
+    <%= form_tag('/orders/cancelled', method: :post) do %>
+      <%= hidden_field_tag :orderhistid, order.id %><br>
+      <%= submit_tag "注文をキャンセルする" %><br>
+    <% end %>
+  <% else %>
+    注文をキャンセル済
+  <% end %>
+  <br>
+<% end %>

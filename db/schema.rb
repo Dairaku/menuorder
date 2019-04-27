@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190427165941) do
+ActiveRecord::Schema.define(version: 20190427193201) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "quantity"
@@ -53,12 +53,14 @@ ActiveRecord::Schema.define(version: 20190427165941) do
 
   create_table "order_histories", force: :cascade do |t|
     t.integer  "menu_id"
-    t.integer  "quantity",                     null: false
-    t.integer  "seat_number",                  null: false
-    t.boolean  "is_telled",    default: false, null: false
-    t.boolean  "is_cancelled", default: false, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "quantity",                               null: false
+    t.integer  "seat_number",                            null: false
+    t.boolean  "is_telled",              default: false, null: false
+    t.boolean  "is_cancelled",           default: false, null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.datetime "is_telled_timestamp"
+    t.datetime "is_cancelled_timestamp"
   end
 
   add_index "order_histories", ["menu_id"], name: "index_order_histories_on_menu_id"

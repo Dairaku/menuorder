@@ -1,0 +1,20 @@
+<% @cart_items.each do |item| %>
+  Name: <%= item.menu.name %><br>
+  Price:<%= item.menu.price %><br>
+  Quantity:<%= item.quantity %><br>
+  <%= form_tag('/carts/update', method: :post) do %>
+    <%= hidden_field_tag :menuId, item.menu.id %><br>
+    <%= select :cart_list, :quantity, [1,2,3] %>
+    <%= submit_tag "数量を変更する" %><br>
+  <% end %>
+  <%= form_tag('/carts/delete', method: :post) do %>
+    <%= hidden_field_tag :menuId, item.menu.id %><br>
+    <%= submit_tag "商品を削除する" %><br>
+  <% end %>
+<% end %>
+
+<%= form_tag('/carts/order', method: :post) do %>
+  <%= label_tag :座席番号を選択する %>
+  <%= select :seat, :number, [1,2,3,4,5] %><br>
+  <%= submit_tag "注文する" %><br>
+<% end %>
