@@ -26,9 +26,10 @@ class CartsController < ApplicationController
   # カート一覧を表示
   def index
     @cart_items = @cart.cart_items
-
-    # index
-    @seat_number = params[:seat_number]
+    @amount = 0
+    @cart_items.each do |item|
+      @amount += item.menu.price * item.quantity
+    end
   end
 
   # カート一覧を注文

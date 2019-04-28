@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!--以下3行必須 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="books.css">
+
+    <title>注文一覧</title>
+  </head>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Bistro Waiwai</a>
+    </div>
+</nav>
+
+
+  <body>
+    <div class="body_buying_detail">
+    <div class ="container">
+
+    <table class="table table-striped">
+      <tr>
+        <th class="text-center">注文番号</th>
+        <th class="text-center">テーブル番号</th>
+        <th class="text-center">注文内容</th>
+        <th class="text-center">個数</th>
+        <th class="text-center">注文時間</th>
+        <th class="text-center">厨房伝達未済</th>
+        <th class="text-center">キャンセル</th>
+     </tr>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td class="text-center">1</td>
+        <td class="text-center">唐揚げ</td>
+        <td class="text-center">2</td>
+        <td class="text-center">2019/04/19 19:20:24</td>
+        <td class="text-center"><input type="submit" value="済" class="btn btn-block btn-default"></td>
+        <td class="text-center"><input type="submit" value="キャンセルする" class="btn btn-block btn-primary"></td>
+     </tr>
+     <tr>
+       <td class="text-center">2</td>
+       <td class="text-center">2</td>
+       <td class="text-center">唐揚げ</td>
+       <td class="text-center">2</td>
+       <td class="text-center">2019/04/19 19:20:24</td>
+       <td class="text-center"><input type="submit" value="済" class="btn btn-block btn-default"></td>
+       <td class="text-center"><input type="submit" value="キャンセルする" class="btn btn-block btn-primary"></td>
+    </tr>
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-center">1</td>
+      <td class="text-center">唐揚げ</td>
+      <td class="text-center">2</td>
+      <td class="text-center">2019/04/19 19:20:24</td>
+      <td class="text-center"><input type="submit" value="済" class="btn btn-block btn-default"></td>
+      <td class="text-center"><input type="submit" value="キャンセル済" class="btn btn-block btn-default"></td>
+   </tr>
+   <tr>
+     <td class="text-center">4</td>
+     <td class="text-center">1</td>
+     <td class="text-center">唐揚げ</td>
+     <td class="text-center">2</td>
+     <td class="text-center">2019/04/19 19:20:24</td>
+     <td class="text-center"><input type="submit" value="済" class="btn btn-block btn-default"></td>
+     <td class="text-center"><input type="submit" value="キャンセル済" class="btn btn-block btn-default"></td>
+  </tr>
+  <tr>
+    <td class="text-center">5</td>
+    <td class="text-center">1</td>
+    <td class="text-center">唐揚げ</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2019/04/19 19:20:24</td>
+    <td class="text-center"><input type="submit" value="未" class="btn btn-block btn-warning"></td>
+    <td class="text-center"><input type="submit" value="キャンセル済" class="btn btn-block btn-default"></td>
+ </tr>
+ <tr>
+   <td class="text-center">6</td>
+   <td class="text-center">1</td>
+   <td class="text-center">唐揚げ</td>
+   <td class="text-center">2</td>
+   <td class="text-center">2019/04/19 19:20:24</td>
+   <td class="text-center"><input type="submit" value="未" class="btn btn-block btn-warning"></td>
+   <td class="text-center"><input type="submit" value="キャンセルする" class="btn btn-block btn-primary"></td>
+</tr>
+<tr>
+  <td class="text-center">7</td>
+  <td class="text-center">1</td>
+  <td class="text-center">唐揚げ</td>
+  <td class="text-center">2</td>
+  <td class="text-center">2019/04/19 19:20:24</td>
+  <td class="text-center"><input type="submit" value="未" class="btn btn-block btn-warning"></td>
+  <td class="text-center"><input type="submit" value="キャンセル済" class="btn btn-block btn-default"></td>
+</tr>
+    </tbody>
+  </table>
+
+
+    </div>
+
+   </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</div>
+ </body>
+
+
+</html>
+
+
+<!--
+  ・画像の横に文字をいい感じに並べる方法
+  ・配送先が2行になる　上下中央揃えができない

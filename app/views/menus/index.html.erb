@@ -1,4 +1,81 @@
-<% @menus.each do |menu| %>
-  Name: <%= menu.name %><br>
-  Price: <%= menu.price %><br>
-<% end %>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Bistro Waiwai</a>
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li>
+        <a href="#">ドリンク</a>
+      </li>
+      <li>
+        <a href="?category_id=1">サラダ</a>
+      </li>
+      <li>
+        <a href="">アテ☆スピードメニュー</a>
+      </li>
+      <li>
+        <a href="?category_id=2">冷菜</a>
+      </li>
+      <li>
+        <a href="">野菜</a>
+      </li>
+      <li>
+        <a href="">温かいメニュー</a>
+      </li>
+      <li>
+        <a href="">揚げ物</a>
+      </li>
+      <li>
+        <a href="">シメもの</a>
+      </li>
+      <li>
+        <a href="">デザート</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <% @menus.each do |menu| %>
+      <%= link_to("/menus/#{menu.id}") do %>
+      <div class="col-xs-6">
+        <div class="thumbnail">
+          <%= image_tag "/#{menu.id}/main.png"%>
+          <div class="caption">
+            <h4><%= menu.name %></h4>
+            <p>（税抜）<%= menu.price %>円</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-header">
+      <div class="btn-group-justified">
+        <div class="row">
+          <div class="col-xs-6 purchase_proceed_button">
+            <input type="submit" value="トップ" class="btn btn-block btn-default"></input>
+          </div>
+          <div class="col-xs-6 purchase_proceed_button">
+            <input type="submit" value="カート" class="btn btn-block btn-default"></input>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+</div>
+</body>
