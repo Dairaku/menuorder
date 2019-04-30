@@ -25,20 +25,17 @@ MenuCategory.create!(
 )
 
 Menu.create!(
-  [
-    {
-      restaurant_id: 1,
-      menu_category_id: 1,
-      name: '豆腐の和風サラダとりとグレープフルーツのゴマサラダ',
-      description: 'テストテストテストテストテストテストテストテスト',
-      price: 690
-    },
-    {
-      restaurant_id: 1,
-      menu_category_id: 2,
-      name: 'チーズ盛り合わせ',
-      description: 'テストテストテストテストテストテストテストテスト',
-      price: 1000
-    }
-  ]
+  restaurant_id: 1,
+  menu_category_id: 1,
+  name: '豆腐の和風サラダとりとグレープフルーツのゴマサラダ',
+  description: 'テストテストテストテストテストテストテストテスト',
+  price: 690
+)
+
+Menu.create!(
+  restaurant_id: 1,
+  menu_category_id: 2,
+  name: 'チーズ盛り合わせ',
+  description: 'テストテストテストテストテストテストテストテスト',
+  price: 1000
 )
