@@ -12,16 +12,13 @@ Restaurant.create!(
 )
 
 MenuCategory.create!(
-  [
-    {
-      name: 'サラダ',
-      kbn: 1
-    },
-    {
-      name: '冷菜',
-      kbn: 1
-    }
-  ]
+  name: 'サラダ',
+  kbn: 1
+)
+
+MenuCategory.create!(
+  name: '冷菜',
+  kbn: 2
 )
 
 Menu.create!(
