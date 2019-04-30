@@ -34,13 +34,20 @@ class CartsController < ApplicationController
   # カート一覧を注文
   def order
     seat_number = session[:seat_number]
-    # TODO：エラーチェック
+
+    if seat_number.blank?
+      redirect_to "/carts", danger: "再度QRコードの読み取りをお願いします。"
+      exit
+    end
 
     # @cart_itemsをOrderテーブルに挿入
     @cart_items = @cart.cart_items
     @cart_items.each do |item|
-      @order_history = OrderHistory.new(menu_id: item.menu_id, quantity: item.quantity, seat_number: seat_number)
-      @order_history.save
+      # トランザクション開始
+      OrderHistory.transaction do
+        @order_history = OrderHistory.new(menu_id: item.menu_id, quantity: item.quantity, seat_number: seat_number)
+        @order_history.save!
+      end   # transactionブロックを正常に抜けるとコミットされる
     end
 
     session[:cart_id] = nil
