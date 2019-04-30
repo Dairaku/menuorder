@@ -16,11 +16,10 @@ class CartsController < ApplicationController
     end
 
     if @cart_item.save
+      redirect_to "/menus/#{menuId}", success: "カートに追加しました。"
     else
+      render "detail"
     end
-
-    redirect_to action: 'index'
-
   end
 
   # カート一覧を表示
@@ -34,8 +33,7 @@ class CartsController < ApplicationController
 
   # カート一覧を注文
   def order
-    seat_number = params[:seat][:number]
-
+    seat_number = session[:seat_number]
     # TODO：エラーチェック
 
     # @cart_itemsをOrderテーブルに挿入
@@ -45,13 +43,9 @@ class CartsController < ApplicationController
       @order_history.save
     end
 
-    # 注文完了後、session[:cart_id]を削除する
     session[:cart_id] = nil
 
-    # TODO：リダイレクト先を変更する
-    # TODO：リダイレクト先にnoticeを渡す
-    redirect_to action: 'index'
-
+    redirect_to '/carts', success: "注文が完了しました。"
   end
 
   # 数量を変更
@@ -62,13 +56,11 @@ class CartsController < ApplicationController
     @cart_item = @cart.cart_items.find_by(menu_id: menuId)
 
     if @cart_item.update(quantity: quantity)
-      # TODO：成功メッセージ
+      redirect_to '/carts', success: "#{@cart_item.menu.name}の数量を変更しました。"
     else
-
+      flash.now[:error] = '#{@cart_item.menu.name}の数量の変更に失敗しました。お手数ですが、スタッフをお呼びくださいませ。'
+      render "index"
     end
-
-    redirect_to action: 'index'
-
   end
 
   # 商品を削除
@@ -77,24 +69,21 @@ class CartsController < ApplicationController
     @cart_item = @cart.cart_items.find_by(menu_id: menuId)
 
     if @cart_item.delete
-      # TODO：成功メッセージ
+      redirect_to '/carts', success: "#{@cart_item.menu.name}をカートから削除しました。"
     else
-
+      flash.now[:error] = '#{@cart_item.menu.name}をカートから削除できませんでした。お手数ですが、スタッフをお呼びくださいませ。'
+      render "index"
     end
-
-    redirect_to action: 'index'
   end
 
   private
   def setup_cart_item
-
     if session[:cart_id]
       @cart = Cart.find(session[:cart_id])
     else
       @cart = Cart.create
       session[:cart_id] = @cart.id
     end
-
   end
 
 end

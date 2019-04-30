@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- 以下3行必須　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="books.css">
+    <title >Bistro Wai Wai</title>
+  </head>
+
+  <body>
+    <style>
+      .tab-content ul.sub-tab-content{
+        display: none;
+      }
+      .tab-content ul.sub-tab-content.active{
+        display: block;
+      }
+      .nav-tabs-wrap {
+        overflow-y: none;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .nav-tabs-wrap .nav {
+        display: inline-block;
+        width: 100%;
+      }
+      .nav-tabs-wrap .nav > li {
+        display: inline-block;
+        float: none;
+      }
+      .gnav {
+        flex-direction: column;
+      }
+    </style>
+
+      <div class="nav navbar-inverse">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">Bistro Wai Wai</a>
+        </div>
+        <ul class="nav nav-tabs parent-tab-content">
+          <li class="active"><a href="#tab1" data-toggle="tab">フード</a></li>
+          <li><a href="#tab2" data-toggle="tab">ドリンク</a></li>
+        </ul>
+        <div class="tab-content active nav-tabs-wrap gnav">
+          <!--親タブ1のメニュー-->
+          <ul class="nav nav-tabs sub-tab-content" id="tab1">
+              <!--各親タブの中でデフォルトで表示させたい子タブにactive属性を-->
+              <li class="active"><a href="#child-tab1" data-toggle="tab">サラダ</a></li>
+              <li><a href="#child-tab2" data-toggle="tab">冷たいもの</a></li>
+              <li><a href="#child-tab3" data-toggle="tab">温かいもの</a></li>
+              <li><a href="#child-tab4" data-toggle="tab">揚げもの</a></li>
+              <li><a href="#child-tab5" data-toggle="tab">シメ</a></li>
+              <li><a href="#child-tab6" data-toggle="tab">数量限定</a></li>
+              <li><a href="#child-tab7" data-toggle="tab">デザート</a></li>
+          </ul>
+          <!--親タブ2のメニュー-->
+          <ul class="nav nav-tabs sub-tab-content" id="tab2">
+              <li class="active"><a href="#child-tab8" data-toggle="tab">ビール</a></li>
+              <li><a href="#child-tab9" data-toggle="tab">チュウハイ</a></li>
+              <li><a href="#child-tab10" data-toggle="tab">ハイボール</a></li>
+              <li><a href="#child-tab11" data-toggle="tab">芋焼酎</a></li>
+              <li><a href="#child-tab12" data-toggle="tab">麦焼酎</a></li>
+              <li><a href="#child-tab13" data-toggle="tab">日本酒</a></li>
+              <li><a href="#child-tab14" data-toggle="tab">梅酒</a></li>
+              <li><a href="#child-tab15" data-toggle="tab">カクテル</a></li>
+              <li><a href="#child-tab16" data-toggle="tab">ジュース</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class ="container">
+        <br>
+        <div class="col-xs-6">
+            <div class="thumbnail" >
+              <img src="karaage.jpg"　alt="唐揚げ">
+                <div class="caption">
+                  <h4>唐揚げ</h4>
+                  <p>¥500 (税抜)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="thumbnail" >
+              <img src="karaage.jpg"　alt="唐揚げ">
+                <div class="caption">
+                  <h4>唐揚げ</h4>
+                  <p>¥500 (税抜)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="thumbnail" >
+              <img src="karaage.jpg"　alt="唐揚げ">
+                <div class="caption">
+                  <h4>唐揚げ</h4>
+                  <p>¥500 (税抜)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="thumbnail" >
+              <img src="karaage.jpg"　alt="唐揚げ">
+                <div class="caption">
+                  <h4>唐揚げ</h4>
+                  <p>¥500 (税抜)</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <br>
+
+   <footer>
+     <div class="text-center">
+        Bistro Waiwaiについて
+        <br>
+        <a href="#">食べログ</a>
+        <br>
+        <a href="#">Instagram</a>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    </footer>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="navbar-header">
+        <div class="btn-group-justified">
+          <div class="row">
+            <div class="col-xs-4 purchase_proceed_button">
+              <input type="submit" value="一覧" class="btn btn-block btn-default">
+              </input>
+            </div>
+            <div class="col-xs-4 purchase_proceed_button">
+              <input type="submit" value="カート" class="btn btn-block btn-default">
+              </input>
+            </div>
+            <div class="col-xs-4 purchase_proceed_button">
+              <input type="submit" value="注文履歴" class="btn btn-block btn-default">
+              </input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -1,10 +1,9 @@
 <body>
   <div class="container">
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-header">
-        <a href="#" class="navbar-brand">＜</a>
-        <a href="#" class="navbar-brand">カート一覧</a>
+        <a href="/menus?menu_category_id=1" class="navbar-brand">＜</a>
+        <a href="/menus?menu_category_id=1" class="navbar-brand">一覧へ戻る</a>
       </div>
     </nav>
 
@@ -12,51 +11,48 @@
     <br>
     <br>
 
-    <div class="text-left">
-      <div class="row">
-        <div class="col-xs-offset-1 col-xs-3">
-          <h3>合計</h3>
-        </div>
-        <div class="col-xs-8">
-          <h3>（税抜）<%= @amount %>円</h3>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="col-xs-12 text-center">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
-        座席番号を入力して注文する
-      </button>
-    </div>
-    <br>
-    <br>
-    <hr>
-
-    <!-- ボタン・リンククリック後に表示される画面の内容 -->
-    <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4>注文確認画面</h4>
-          </div>
-          <%= form_tag('/carts/order', method: :post) do %>
-          <div class="modal-body">
-            <label>座席番号の入力をお願いします。</label>
-            <%= select :seat, :number, [1,2,3,4,5], {}, {autofocus: 'true', class: 'form-control'} %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-            <%= submit_tag "注文する", :class => "btn btn-primary" %>
+    <div class="row">
+      <div class="col-xs-12">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name %> text-center">
+            <%= msg.html_safe %>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
-  <br>
-  <br>
-  <hr>
 
-  <h4>カート一覧</h4>
+    <% if @cart_items.size != 0 %>
+      <div class="text-left">
+        <div class="row">
+          <div class="col-xs-6">
+            <h3>合計</h3>
+          </div>
+          <div class="col-xs-6">
+            <h3>（税抜）<%= @amount %>円</h3>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="col-xs-12 text-center">
+        <%= form_tag('/carts/order', method: :post) do %>
+          <%= submit_tag "注文する", :class => "btn btn-block btn-danger btn-lg" %>
+        <% end %>
+      </div>
+    <% end %>
+    <hr>
+    <br>
+    <br>
+    <hr>
+
+  <h3>カート一覧</h3>
+  <% if @cart_items.size == 0 %>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h4>現在、カートに追加されているメニューがありません。</h4>
+      </div>
+    </div>
+  <% end %>
+
   <% @cart_items.each do |item| %>
     <div class="row">
       <div class="thumbnail">
@@ -110,12 +106,12 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-          <%= submit_tag "数量を変更する", :class => "btn btn-primary" %>
+          <%= submit_tag "変更する", :class => "btn btn-primary" %>
         </div>
       </div>
     </div>
   </div>
-  <% end %>
-  <% end %>
-  </div>
+<% end %>
+<% end %>
+</div>
 </body>

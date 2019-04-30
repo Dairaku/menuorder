@@ -1,51 +1,38 @@
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="nav navbar-inverse">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">Bistro Waiwai</a>
+      <a href="#" class="navbar-brand">Bistro Wai Wai</a>
     </div>
-
-    <ul class="nav nav-tabs">
-      <li>
-        <a href="#">ドリンク</a>
+    <ul class="nav nav-tabs parent-tab-content">
+      <li class="active">
+        <a href="#tab1" data-toggle="tab">フード</a>
       </li>
       <li>
-        <a href="?category_id=1">サラダ</a>
-      </li>
-      <li>
-        <a href="">アテ☆スピードメニュー</a>
-      </li>
-      <li>
-        <a href="?category_id=2">冷菜</a>
-      </li>
-      <li>
-        <a href="">野菜</a>
-      </li>
-      <li>
-        <a href="">温かいメニュー</a>
-      </li>
-      <li>
-        <a href="">揚げ物</a>
-      </li>
-      <li>
-        <a href="">シメもの</a>
-      </li>
-      <li>
-        <a href="">デザート</a>
+        <a href="#tab2" data-toggle="tab">ドリンク</a>
       </li>
     </ul>
-  </nav>
+    <div class="tab-content active nav-tabs-wrap gnav">
+      <!--親タブ1のメニュー-->
+      <ul class="nav nav-tabs sub-tab-content" id="tab1">
+        <!--各親タブの中でデフォルトで表示させたい子タブにactive属性を-->
+        <% @food_menu_categories.each do |category| %>
+          <li class="active">
+            <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
+          </li>
+        <% end %>
+      </ul>
+      <!--親タブ2のメニュー-->
+      <ul class="nav nav-tabs sub-tab-content" id="tab2">
+        <% @drink_menu_categories.each do |category|%>
+          <li class="active">
+            <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
   <div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <% @menus.each do |menu| %>
       <%= link_to("/menus/#{menu.id}") do %>
@@ -65,17 +52,12 @@
     <div class="navbar-header">
       <div class="btn-group-justified">
         <div class="row">
-          <div class="col-xs-6 purchase_proceed_button">
-            <input type="submit" value="トップ" class="btn btn-block btn-default"></input>
-          </div>
-          <div class="col-xs-6 purchase_proceed_button">
-            <input type="submit" value="カート" class="btn btn-block btn-default"></input>
+          <div class="col-xs-12 purchase_proceed_button">
+            <a href="/carts" class="btn btn-block btn-primary btn-lg">カートへ移動する</a>
           </div>
         </div>
       </div>
     </div>
-
   </nav>
-
 </div>
 </body>

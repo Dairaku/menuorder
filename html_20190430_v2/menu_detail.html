@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+   <!-- 以下3行必須 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="books.css">
+    <!-- [if lt IE 9]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <!-- [endif]-->
+
+    <title >購入手続き</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">注文詳細</a>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+      <div class ="container">
+        <div class="col-xs-12">
+          <div id="mycarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-taget="#mycarousel" data-slide-to="0" class="active"></li>
+              <li data-taget="#mycarousel" data-slide-to="1"></li>
+              <li data-taget="#mycarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="karaage.jpg" class="img-responsive" alt="唐揚げ">
+              </div>
+              <div class="item">
+                <img src="karaage.jpg" class="img-responsive" alt="唐揚げ">
+              </div>
+              <div class="item">
+                <img src="karaage.jpg" class="img-responsive" alt="唐揚げ">
+              </div>
+              <!-- <左右のコントロール＞ -->
+              <a class="carousel-control left" href="#mycarousel" data-slide="prev">
+                <span class="glyphicon glyphivon-chevron-left"></span>
+              </a>
+              <a class="carousel-control right" href="#mycarousel" data-slide="next">
+                <span class="glyphicon glyphivon-chevron-right"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="caption">
+            <h4>唐揚げ</h4>
+              <hr>
+            <h5>衣はサクサク、塩とたれが添えてあって好みの味が楽しめます。</h5>
+              <hr>
+            <form method="post" class="form-horizontal">
+              <div class="form-group">
+                <div class="text-right">
+                <div class="col-xs-offset-4 col-xs-4">数量：</div>
+                  <div class="col-xs-4">
+                  <select name="amount" id="amount" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                </div>
+              </div>
+            </form>
+            <div class="text-right">
+              <h4>¥500 (税抜)</h4>
+            </div>
+          </div>
+          <br>
+
+          <div class="modal" id="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">カートに追加しました！</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <button class="btn btn-block btn-primary" onclick="$('#modal').modal('show');">
+            カートに入れる
+            </button>
+          </div>
+        </div>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+      </div>
+  </body>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-header">
+     <div class="btn-group-justified">
+       <div class="row">
+        <div class="col-xs-4 purchase_proceed_button">
+          <input type="submit" value="一覧" class="btn btn-block btn-default">
+          </input>
+        </div>
+        <div class="col-xs-4 purchase_proceed_button">
+          <input type="submit" value="カート" class="btn btn-block btn-default">
+          </input>
+        </div>
+        <div class="col-xs-4 purchase_proceed_button">
+          <input type="submit" value="注文履歴" class="btn btn-block btn-default">
+          </input>
+        </div>
+      </div>
+     </div>
+    </div>
+  </nav>
+</html>

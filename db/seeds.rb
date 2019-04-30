@@ -18,6 +18,20 @@ MenuCategory.create!(
 
 MenuCategory.create!(
   name: '冷菜',
+  kbn: 1
+)
+MenuCategory.create!(
+  name: 'ハイボール',
+  kbn: 2
+)
+
+MenuCategory.create!(
+  name: '芋焼酎',
+  kbn: 2
+)
+
+MenuCategory.create!(
+  name: '日本酒',
   kbn: 2
 )
 
@@ -35,4 +49,28 @@ Menu.create!(
   name: 'チーズ盛り合わせ',
   description: 'テストテストテストテストテストテストテストテスト',
   price: 1000
+)
+
+Menu.create!(
+  restaurant_id: 1,
+  menu_category_id: 3,
+  name: 'ハイボール',
+  description: 'テストテストテストテストテストテストテストテスト',
+  price: 500
+)
+
+Menu.create!(
+  restaurant_id: 1,
+  menu_category_id: 4,
+  name: '麦焼酎',
+  description: 'テストテストテストテストテストテストテストテスト',
+  price: 500
+)
+
+Menu.create!(
+  restaurant_id: 1,
+  menu_category_id: 5,
+  name: '日本酒',
+  description: 'テストテストテストテストテストテストテストテスト',
+  price: 500
 )

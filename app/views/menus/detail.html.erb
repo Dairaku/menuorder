@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-header">
-    <a href="#" class="navbar-brand">＜</a>
-    <a href="#" class="navbar-brand">一覧に戻る</a>
+    <a href="/menus?menu_category_id=1" class="navbar-brand">＜</a>
+    <a href="/menus?menu_category_id=1" class="navbar-brand">一覧へ戻る</a>
   </div>
 
 </nav>
@@ -9,6 +9,18 @@
 <body>
   <div class="body_buying_detail">
     <div class="container">
+      <div class = "raw">
+        <div class = "col-xs-12">
+          <% flash.each do |name, msg| %>
+            <br>
+            <br>
+            <br>
+            <div class="alert alert-<%= name %> text-center">
+              <%= msg.html_safe %>
+            </div>
+            <% end %>
+        </div>
+      </div>
       <br>
       <br>
       <br>
@@ -64,17 +76,22 @@
         <div class="text-right">
           <h4>（税抜）<%= @menu.price %>円</h4>
         </div>
+
       </div>
     </div>
-  </body>
-
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="navbar-header">
-      <div class="row">
-        <div class="col-xs-7 col-xs-offset-5 purchase_proceed_button">
-          <%= submit_tag "注文リストに追加する", :class => "btn btn-block btn-primary"%>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="navbar-header">
+        <div class="btn-group-justified">
+          <div class="row">
+            <div class="col-xs-6 purchase_proceed_button">
+              <a href="/carts" class="btn btn-block btn-primary btn-lg">カートへ移動する</a>
+            </div>
+            <div class="col-xs-6 purchase_proceed_button">
+              <%= submit_tag "カートに追加する", :class => "btn btn-block btn-danger btn-lg"%>
+            </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  <% end %>
+    </nav>
+  </body>
