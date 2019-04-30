@@ -31,24 +31,22 @@ ActiveRecord::Schema.define(version: 20190427193201) do
 
   create_table "menu_categories", force: :cascade do |t|
     t.text     "name",       null: false
+    t.integer  "kbn",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "menus", force: :cascade do |t|
     t.integer  "restaurant_id"
-    t.integer  "category_id"
-    t.text     "name",          null: false
-    t.text     "description",   null: false
-    t.text     "image_path_01"
-    t.text     "image_path_02"
-    t.text     "image_path_03"
-    t.integer  "price",         null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "menu_category_id"
+    t.text     "name",             null: false
+    t.text     "description",      null: false
+    t.integer  "price",            null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "menus", ["category_id"], name: "index_menus_on_category_id"
+  add_index "menus", ["menu_category_id"], name: "index_menus_on_menu_category_id"
   add_index "menus", ["restaurant_id"], name: "index_menus_on_restaurant_id"
 
   create_table "order_histories", force: :cascade do |t|

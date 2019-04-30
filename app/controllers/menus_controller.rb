@@ -1,7 +1,7 @@
 class MenusController < ApplicationController
   def index
     # TODO: category_idの入力値・存在チェック
-    @menus = Menu.where(category_id:params[:category_id])
+    @menus = Menu.where(menu_category_id:params[:category_id])
   end
 
   def detail

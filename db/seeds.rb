@@ -14,10 +14,12 @@ Restaurant.create!(
 MenuCategory.create!(
   [
     {
-      name: 'サラダ'
+      name: 'サラダ',
+      kbn: 1
     },
     {
-      name: '冷菜'
+      name: '冷菜',
+      kbn: 1
     }
   ]
 )
@@ -26,14 +28,14 @@ Menu.create!(
   [
     {
       restaurant_id: 1,
-      category_id: 1,
+      menu_category_id: 1,
       name: '豆腐の和風サラダとりとグレープフルーツのゴマサラダ',
       description: 'テストテストテストテストテストテストテストテスト',
       price: 690
-    }
+    },
     {
       restaurant_id: 1,
-      category_id: 2,
+      menu_category_id: 2,
       name: 'チーズ盛り合わせ',
       description: 'テストテストテストテストテストテストテストテスト',
       price: 1000
