@@ -1,23 +1,55 @@
-<% @orderhistories.each do |order| %>
-  Seat_Number：<%= order.seat_number %>
-  Name: <%= order.menu.name %>
-  Quantity: <%= order.quantity %>
-  <% if order.is_telled == false %>
-    <%= form_tag('/orders/telled', method: :post) do %>
-      <%= hidden_field_tag :orderhistid, order.id %><br>
-      <%= submit_tag "厨房に伝達する" %><br>
-    <% end %>
-  <% else %>
-    厨房に伝達済
-  <% end %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <a href="#" class="navbar-brand">Bistro Waiwai</a>
+  </div>
+</nav>
 
-  <% if order.is_cancelled == false %>
-    <%= form_tag('/orders/cancelled', method: :post) do %>
-      <%= hidden_field_tag :orderhistid, order.id %><br>
-      <%= submit_tag "注文をキャンセルする" %><br>
-    <% end %>
-  <% else %>
-    注文をキャンセル済
-  <% end %>
-  <br>
-<% end %>
+<body>
+  <div class="body_buying_detail">
+    <div class="container">
+      <table class="table table-striped">
+        <tr>
+          <th class="text-center">注文番号</th>
+          <th class="text-center">テーブル番号</th>
+          <th class="text-center">注文内容</th>
+          <th class="text-center">個数</th>
+          <th class="text-center">注文時間</th>
+          <th class="text-center">厨房伝達未済</th>
+          <th class="text-center">キャンセル</th>
+        </tr>
+        <tbody>
+          <% @orderhistories.each do |order| %>
+            <tr>
+              <td class="text-center"><%= order.id %></td>
+              <td class="text-center"><%= order.seat_number %></td>
+              <td class="text-center"><%= order.menu.name %></td>
+              <td class="text-center"><%= order.quantity %></td>
+              <td class="text-center"><%= order.created_at.strftime("%m-%d %H:%M") %></td>
+              <% if order.is_telled == false %>
+                <%= form_tag('/orders/telled', method: :post) do %>
+                <%= hidden_field_tag :orderhistid, order.id %><br>
+                <td class="text-center">
+                  <%= submit_tag "厨房に伝達する", :class => "btn btn-block btn-default btn-primary"%>
+                </td>
+              <% end %>
+            <% else %>
+              <td class="text-center">厨房に伝達済み</td>
+            <% end %>
+
+            <% if order.is_cancelled == false %>
+              <%= form_tag('/orders/cancelled', method: :post) do %>
+              <%= hidden_field_tag :orderhistid, order.id %><br>
+              <td class="text-center">
+                <%= submit_tag "注文をキャンセルする", :class => "btn btn-block btn-default btn-danger"%>
+              </td>
+            <% end %>
+          <% else %>
+            <td class="text-center">キャンセル済み</td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
