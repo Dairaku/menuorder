@@ -77,6 +77,10 @@
           <h4>（税抜）<%= @menu.price %>円</h4>
         </div>
 
+        <div class="col-xs-12">
+          <%= submit_tag "カートに追加する", :class => "btn btn-block btn-danger btn-lg"%>
+        </div>
+
       </div>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -84,10 +88,10 @@
         <div class="btn-group-justified">
           <div class="row">
             <div class="col-xs-6 purchase_proceed_button">
-              <a href="/carts" class="btn btn-block btn-primary btn-lg">カートへ移動する</a>
+              <a href="/menus?menu_category_id=1" class="btn btn-block btn-primary btn-lg">一覧へ戻る</a>
             </div>
             <div class="col-xs-6 purchase_proceed_button">
-              <%= submit_tag "カートに追加する", :class => "btn btn-block btn-danger btn-lg"%>
+              <a href="/carts" class="btn btn-block btn-primary btn-lg">カートへ移動する</a>
             </div>
             <% end %>
           </div>
