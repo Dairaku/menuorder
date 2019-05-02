@@ -34,26 +34,26 @@ class CartsController < ApplicationController
   # カート一覧を注文
   def order
     seat_number = session[:seat_number]
-    
+
     # @cart_itemsをOrderテーブルに挿入
     @cart_items = @cart.cart_items
-    @cart_items.each do |item|
-      # トランザクション開始
-      OrderHistory.transaction do
+
+    # トランザクション開始
+    OrderHistory.transaction do
+      @cart_items.each do |item|
         @order_history = OrderHistory.new(menu_id: item.menu_id, quantity: item.quantity, seat_number: seat_number)
         begin
           @order_history.save!
-
         # TODO: エラー処理の詳細化
         rescue => e
-          redirect_to '/carts', alert:  "再度QRコードの読み取りをお願いします。" and return
+          redirect_to '/carts', danger:  "再度QRコードの読み取りをお願いします。" and return
         end
-      end   # transactionブロックを正常に抜けるとコミットされる
-    end
+      end
+    end # transactionブロックを正常に抜けるとコミットされる
 
     session[:cart_id] = nil
-
     redirect_to '/carts', success: "注文が完了しました。"
+
   end
 
   # 数量を変更
@@ -66,8 +66,7 @@ class CartsController < ApplicationController
     if @cart_item.update(quantity: quantity)
       redirect_to '/carts', success: "#{@cart_item.menu.name}の数量を変更しました。"
     else
-      flash.now[:error] = '#{@cart_item.menu.name}の数量の変更に失敗しました。お手数ですが、スタッフをお呼びくださいませ。'
-      render "index"
+      redirect_to '/carts', danger:  "#{@cart_item.menu.name}の数量の変更に失敗しました。お手数ですが、スタッフをお呼びくださいませ。" and return
     end
   end
 
@@ -79,8 +78,7 @@ class CartsController < ApplicationController
     if @cart_item.delete
       redirect_to '/carts', success: "#{@cart_item.menu.name}をカートから削除しました。"
     else
-      flash.now[:error] = '#{@cart_item.menu.name}をカートから削除できませんでした。お手数ですが、スタッフをお呼びくださいませ。'
-      render "index"
+      redirect_to '/carts', danger:  "#{@cart_item.menu.name}をカートから削除できませんでした。お手数ですが、スタッフをお呼びくださいませ。" and return
     end
   end
 

@@ -56,31 +56,30 @@
         </div>
 
         <div class="caption">
-          <h4><%= @menu.name %></h4>
+          <h3><%= @menu.name %></h3>
           <hr>
-          <h5><%= @menu.description %></h5>
+          <h4><%= @menu.description %></h4>
           <hr>
 
           <%= form_tag('/carts/add', method: :post, class: "form-horizontal") do %>
           <%= hidden_field_tag :menuId, @menuId %>
           <div class="form-group">
-            <div class="text-right">
+            <div class="col-xs-12 text-right">
               <div class="col-xs-offset-4 col-xs-4">数量：</div>
               <div class="col-xs-4">
                 <%= select :cart, :quantity, [1,2,3,4,5], {}, {autofocus: 'true', class: 'form-control'} %>
               </div>
             </div>
+            </div>
+            <div class="col-xs-12 text-right">
+              <h4>（税抜）<%= @menu.price %>円</h4>
+            </div>
+            <div class="col-xs-12">
+              <%= submit_tag "カートに追加する", :class => "btn btn-block btn-danger btn-lg"%>
+            </div>
+            <% end %>
           </div>
         </div>
-
-        <div class="text-right">
-          <h4>（税抜）<%= @menu.price %>円</h4>
-        </div>
-
-        <div class="col-xs-12">
-          <%= submit_tag "カートに追加する", :class => "btn btn-block btn-danger btn-lg"%>
-        </div>
-
       </div>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -93,7 +92,6 @@
             <div class="col-xs-6 purchase_proceed_button">
               <a href="/carts" class="btn btn-block btn-primary btn-lg">カートへ移動する</a>
             </div>
-            <% end %>
           </div>
         </div>
       </div>
