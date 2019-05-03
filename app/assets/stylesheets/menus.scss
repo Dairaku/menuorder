@@ -5,3 +5,31 @@
 .containter{
   padding-bottom: 90px;
 }
+
+.tab-content ul.sub-tab-content {
+  display: none;
+}
+
+.tab-content ul.sub-tab-content.active {
+  display: block;
+}
+
+.nav-tabs-wrap {
+  overflow-y: none;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.nav-tabs-wrap .nav {
+  display: inline-block;
+  width: 100%;
+}
+
+.nav-tabs-wrap .nav > li {
+  display: inline-block;
+  float: none;
+}
+
+.gnav {
+  flex-direction: column;
+}

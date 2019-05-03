@@ -1,36 +1,71 @@
 <body>
-  <div class="nav navbar-inverse">
+  <nav class="navbar navbar-inverse">
     <div class="navbar-header">
       <a href="#" class="navbar-brand">Bistro Wai Wai</a>
     </div>
+    <div class="collapse navbar-collapse">
     <ul class="nav nav-tabs parent-tab-content">
-      <li class="active">
-        <a href="#tab1" data-toggle="tab">フード</a>
-      </li>
-      <li>
-        <a href="#tab2" data-toggle="tab">ドリンク</a>
-      </li>
+      <%if @menu_category.present? && @menu_category.kbn == 1 %>
+        <li class="nav-item active">
+          <a href="#tab1" data-toggle="tab">フード</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a href="#tab1" data-toggle="tab">フード</a>
+        </li>
+      <% end %>
+      <%if @menu_category.present? && @menu_category.kbn == 2 %>
+        <li class="nav-item active">
+          <a href="#tab2" data-toggle="tab">ドリンク</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a href="#tab2" data-toggle="tab">ドリンク</a>
+        </li>
+      <% end %>
     </ul>
+    </div>
+
     <div class="tab-content active nav-tabs-wrap gnav">
       <!--親タブ1のメニュー-->
-      <ul class="nav nav-tabs sub-tab-content" id="tab1">
+      <%if @menu_category.present? && @menu_category.kbn == 1 %>
+        <ul class="nav nav-tabs sub-tab-content active" id="tab1">
+      <% else %>
+        <ul class="nav nav-tabs sub-tab-content" id="tab1">
+      <% end %>
         <!--各親タブの中でデフォルトで表示させたい子タブにactive属性を-->
         <% @food_menu_categories.each do |category| %>
-          <li class="active">
-            <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
-          </li>
+          <%if @menu_category.present? && @menu_category.id == category.id %>
+            <li class="active">
+              <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
+            </li>
+          <% else %>
+            <li>
+              <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
+            </li>
+          <% end %>
         <% end %>
       </ul>
       <!--親タブ2のメニュー-->
-      <ul class="nav nav-tabs sub-tab-content" id="tab2">
+      <%if @menu_category.present? && @menu_category.kbn == 2 %>
+        <ul class="nav nav-tabs sub-tab-content active" id="tab2">
+      <% else %>
+        <ul class="nav nav-tabs sub-tab-content" id="tab2">
+      <% end %>
         <% @drink_menu_categories.each do |category|%>
-          <li class="active">
-            <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
-          </li>
+          <%if @menu_category.present? && @menu_category.id == category.id %>
+            <li class="active">
+              <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
+            </li>
+          <% else %>
+            <li>
+              <a href="/menus?menu_category_id=<%= category.id %>"><%= category.name %></a>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
-  </div>
+  </nav>
 
   <div class="container">
     <br>

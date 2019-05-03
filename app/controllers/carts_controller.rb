@@ -16,7 +16,7 @@ class CartsController < ApplicationController
     end
 
     if @cart_item.save
-      redirect_to "/menus/#{menuId}", success: "カートに追加しました。"
+      redirect_to "/menus/#{menuId}", success: "カートに#{quantity}点追加しました。"
     else
       render "detail"
     end

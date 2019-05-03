@@ -1,31 +1,3 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.tab-content ul.sub-tab-content {
-  display: none;
-}
-
-.tab-content ul.sub-tab-content.active {
-  display: block;
-}
-
-.nav-tabs-wrap {
-  overflow-y: none;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.nav-tabs-wrap .nav {
-  display: inline-block;
-  width: 100%;
-}
-
-.nav-tabs-wrap .nav > li {
-  display: inline-block;
-  float: none;
-}
-
-.gnav {
-  flex-direction: column;
-}
