@@ -54,7 +54,13 @@
         <div class="caption">
           <h3><%= @menu.name %></h3>
           <hr>
-          <h4><%= @menu.description %></h4>
+          <h4>
+            <%if @menu.description.present? %>
+              <%= @menu.description %>
+            <% else %>
+              画像はイメージです。
+            <% end %>
+          </h4>
           <hr>
 
           <%= form_tag('/carts/add', method: :post, class: "form-horizontal") do %>
