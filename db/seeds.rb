@@ -7,10 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # テスト用
-# Restaurant.create!(
-#   name: 'Bistro Wai Wai',
-#   number_of_seat: 10
-# )
 #
 # MenuCategory.create!(
 #   name: 'サラダ',
@@ -77,6 +73,11 @@
 # )
 
 require "csv"
+
+Restaurant.create!(
+  name: 'Bistro Wai Wai',
+  number_of_seat: 10
+)
 
 CSV.foreach('db/initialdata/menu_categories.csv', headers: true) do |row|
   MenuCategory.create(kbn: row[1], name: row[2])
