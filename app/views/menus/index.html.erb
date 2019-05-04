@@ -1,5 +1,5 @@
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
       <a href="#" class="navbar-brand">Bistro Wai Wai</a>
     </div>
@@ -65,13 +65,21 @@
     </div>
   </nav>
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
   <div class="container">
-    <br>
     <% @menus.each do |menu| %>
       <%= link_to("/menus/#{menu.id}") do %>
       <div class="col-xs-6">
         <div class="thumbnail">
-          <%= image_tag "/#{menu.id}/main.png"%>
+          <%= image_tag "/#{menu.id}/main_1.jpg", :onerror => "this.src='/no-image.png'" %>
           <div class="caption">
             <h4><%= menu.name %></h4>
             <p>（税抜）<%= menu.price %>円</p>

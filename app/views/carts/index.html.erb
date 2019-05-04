@@ -55,7 +55,7 @@
   <% @cart_items.each do |item| %>
     <div class="row">
       <div class="thumbnail">
-        <%= image_tag "/#{item.menu.id}/main.png"%>
+        <%= image_tag "/#{item.menu.id}/main.png", :onerror => "this.src='/no-image.png'"%>
         <div class="caption">
           <div class="col-xs-12">
             <h4>

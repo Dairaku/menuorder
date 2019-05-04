@@ -35,13 +35,13 @@
 
           <div class="carousel-inner">
             <div class="item active">
-              <%= image_tag "/#{@menu.id}/main.png" ,:class => "img-responsive"%>
+              <%= image_tag "/#{@menu.id}/main_1.jpg" ,:class => "img-responsive", :onerror => "this.src='/no-image.png'"%>
             </div>
             <div class="item">
-              <%= image_tag "/#{@menu.id}/main_2.png" ,:class => "img-responsive"%>
+              <%= image_tag "/#{@menu.id}/main_2.jpg" ,:class => "img-responsive", :onerror => "this.src='/no-image.png'"%>
             </div>
             <div class="item">
-              <%= image_tag "/#{@menu.id}/main_3.png" ,:class => "img-responsive"%>
+              <%= image_tag "/#{@menu.id}/main_3.jpg" ,:class => "img-responsive", :onerror => "this.src='/no-image.png'"%>
             </div>
             <!-- <左右のコントロール＞ -->
             <a class="carousel-control left" href="#mycarousel" role="button" data-slide="prev">
