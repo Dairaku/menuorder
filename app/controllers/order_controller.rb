@@ -1,6 +1,7 @@
 class OrderController < ApplicationController
   def index
     @orderhistories = OrderHistory.all.order(created_at: "DESC")
+    render :layout => 'orderhistory'
   end
 
   def telled
