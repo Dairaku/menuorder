@@ -1,7 +1,7 @@
 class MenusController < ApplicationController
   def index
     # 座席番号をセッションに保存
-    if session[:seat_number].blank?
+    if params[:seat_number].present?
       session[:seat_number] = params[:seat_number]
     end
 
