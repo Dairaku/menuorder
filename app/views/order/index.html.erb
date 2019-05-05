@@ -39,7 +39,7 @@
                 <%= form_tag('/orders/telled', method: :post) do %>
                 <%= hidden_field_tag :orderhistid, order.id %><br>
                 <td class="text-center">
-                  <%= submit_tag "厨房に伝達する", :class => "btn btn-block btn-default btn-primary"%>
+                  <%= submit_tag "厨房に未伝達", :class => "btn btn-block btn-default btn-primary"%>
                 </td>
               <% end %>
             <% else %>
